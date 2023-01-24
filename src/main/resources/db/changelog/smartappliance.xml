@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<changeSet author="appliance1" id="apli-1" runAlways="false">
+		<comment>Walmart Appliances</comment>
+		<sql splitStatements="true">
+			CREATE TABLE `Item` (
+			`id` BIGINT NOT NULL AUTO_INCREMENT,
+			`itemId` BIGINT  NULL,
+			`parentItemId` BIGINT  NULL,
+			`name` varchar(255) NOT NULL,
+			`msrp`decimal NULL,
+			`salePrice` decimal  NULL,
+			`upc`varchar(255) NULL,
+			`categoryPath` varchar(255) NOT NULL,
+			`shortDescription` LONGTEXT NOT NULL,
+			`longDescription` LONGTEXT NOT NULL,
+			`brandName` varchar(255)  NULL,
+			`thumbnailImage`varchar(255)NOT NULL,
+			`mediumImage` varchar(255) NOT NULL,
+			`largeImage` varchar(255) NOT NULL,
+			`productTrackingUrl` varchar(255) NOT NULL,
+			`ninetySevenCentShipping`boolean NOT NULL,
+			`standardShipRate`decimal NULL,
+		    `twoThreeDayShippingRate` decimal NULL, 
+			`marketplace`boolean NOT NULL,
+			`shipToStore` boolean NOT NULL,
+			`freeShipToStore` boolean NOT NULL,
+			`modelNumber` varchar(255) NULL,
+			`sellerInfo` varchar(255) NULL,
+		    `customerRating`varchar(255)NULL,
+			`numReviews` int NOT NULL, 
+			`categoryNode`varchar(255) NOT NULL,
+			`rhid` varchar(255) NOT NULL,
+			`bundle` boolean NOT NULL,
+			`clearance` boolean NOT NULL,
+			`preOrder` boolean NOT NULL,
+			`stock` varchar(255) NOT NULL,
+			`freight` boolean NOT NULL,
+			`affiliateAddToCartUrl` varchar(255) NOT NULL,
+			`freeShippingOver35Dollars` boolean NOT NULL,
+			`maxItemsInOrder` int NOT NULL,
+			`offerType` varchar(255)  NULL,
+			`isTwoDayShippingEligible` boolean NOT NULL,
+			`availableOnline` boolean NOT NULL,
+			`offerId` varchar(255) NULL,
+			PRIMARY KEY (`id`)
+			) ;
+    </sql>
+	</changeSet>
+	 <changeSet author="appliance2" id="appli-2" runAlways="false">
+		<comment>Walmart Appliances</comment>
+		<sql splitStatements="true">
+			CREATE TABLE `ImageEntities`(
+			`itemId` int NOT NULL,
+            `id` int NOT NULL AUTO_INCREMENT,
+			`thumbnailImage` varchar(255) NOT NULL,
+			`mediumImage` varchar(255) NOT NULL,
+			`largeImage` varchar(255) NOT NULL,
+			`entityType` varchar(255) NOT NULL,
+			PRIMARY KEY (`id`)
+			);
+		</sql>
+	 </changeSet>
+     <changeSet author="appliance3" id="appli-3" runAlways="false">
+       <comment>Walmart Appliances</comment>
+         <sql splitStatements="true">
+        ALTER TABLE `Item` ADD COLUMN `size` varchar(255) NULL AFTER `offerId`;
+        ALTER TABLE `Item` ADD COLUMN `color` varchar(255) NULL AFTER `size`;
+        ALTER TABLE `Item` ADD COLUMN `gender` varchar(255) NULL AFTER `color`;
+        ALTER TABLE `Item` ADD COLUMN `category` varchar(255) NULL AFTER `gender`;
+         </sql>
+     </changeSet>
+</databaseChangeLog>

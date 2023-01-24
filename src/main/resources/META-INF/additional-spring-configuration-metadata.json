@@ -1,0 +1,27 @@
+{"properties": [
+  {
+    "name": "filepassword",
+    "type": "java.lang.String",
+    "description": "A description for 'filepassword'"
+  },
+  {
+    "name": "priviateKeyVersion",
+    "type": "java.lang.String",
+    "description": "A description for 'priviateKeyVersion'"
+  },
+  {
+    "name": "walmartProductSearchUrl",
+    "type": "java.lang.String",
+    "description": "A description for 'walmartProductSearchUrl'"
+  },
+  {
+    "name": "consumerId",
+    "type": "java.lang.String",
+    "description": "A description for 'consumerId'"
+  },
+  {
+    "name": "filepath",
+    "type": "java.lang.String",
+    "description": "A description for 'filepath'"
+  }
+]}
